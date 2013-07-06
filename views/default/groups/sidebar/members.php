@@ -79,14 +79,12 @@ $(document).ready(function(){
 	elgg_load_js('group_chat_jquery_js');
 	$content = '';
 	$content .= elgg_view('group_chat/chat_process_engine', $guid);
-	$content .= elgg_view('group_chat/chat_window', $vars);	
+	$content .= elgg_view('group_chat/chat_windowPage');	
 ?>
 
 <div id="container">
 		<div id="inner">
- 
 			<?php echo $content;?>
- 
 		</div>
 	</div>
 </div>

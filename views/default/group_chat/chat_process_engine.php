@@ -6,6 +6,7 @@ $baseUrl = $CONFIG->url;
 $ts = time();
 $token = generate_action_token($ts);
 $guid =  elgg_get_page_owner_guid();
+
 ?>
 <script type="text/javascript" language="javascript">
 
@@ -15,7 +16,6 @@ Created by: Mitesh Chavda
 
 Name: Chat Engine
 */
-
 var instance = false;
 var state;
 var mes;

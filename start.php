@@ -19,32 +19,42 @@ elgg_register_event_handler('init', 'system', 'group_chat_init');
  */
 function group_chat_init() {
 
+$owner=elgg_get_page_owner_entity();
+
+$pippo="Non so dove sto";
+
+if ($owner instanceof ElggGroup) {
+	$pippo="Sto in un gruppo";
+}
 	elgg_register_library('elgg:group_chat', elgg_get_plugins_path() . 'group_chat/lib/group_chat.php');
 	
 	// entity menu
 	//elgg_register_plugin_hook_handler('register', 'menu:page', 'chat_group_page_menu');
-	elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'group_chat_owner_block_menu');
+	//elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'group_chat_owner_block_menu');
 	
-	elgg_register_entity_url_handler('group_chat', '', 'group_chat_url'); 
+	//elgg_register_entity_url_handler('group_chat', '', 'group_chat_url'); 
 	
-	elgg_register_page_handler('chat', 'group_chat_page_handler');
+	//elgg_register_page_handler('chat', 'group_chat_page_handler');
 
 	// To Register JS 
 	$js_url = 'mod/group_chat/js/jquery.js'; 
 	elgg_register_js('group_chat_jquery_js', $js_url);
 	
-	// Extend the main css view
+	// Extend the main css view 
 	elgg_extend_view('css/elgg', 'group_chat/css');
-	//elgg_extend_view('css/elgg', 'group_chat/css_bottom_bar');
 	
 	//elgg_extend_view('groups/tool_latest', 'group_chat/group_module');
-		
+	//elgg_extend_view('groups/tool_latest', 'group_chat/chat_window');
+	//elgg_register_event_handler('group', $owner,'group_chat_handle_group_page');
+	
+	//elgg_extend_view('groups/tool_latest', '/group_chat/chat_process_engine');	
+	
 	// Register action
 	$action_base = elgg_get_plugins_path() . 'group_chat/actions/group_chat';
 	elgg_register_action("group_chat/process","$action_base/process.php", 'public');
-	//elgg_register_action("group_chat/discussion","$action_base/discussion.php", 'public');	
+	
+	
 }
-
 
 function get_chat_content(){
 

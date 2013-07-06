@@ -1,5 +1,6 @@
 <?php 
 global $CONFIG;
+$owner=elgg_get_page_owner_entity();
 $guid =  elgg_get_logged_in_user_guid();
 if($guid > 0){
 	$user = elgg_get_logged_in_user_entity();
@@ -7,13 +8,14 @@ if($guid > 0){
 	if(!strstr($profilePic, 'defaulttiny.gif'))
 		$profilePic .= '.jpg';
 }
-
 ?>
 <script type="text/javascript">
 		
-		<?php if($guid > 0){ ?>
+		<?php
 		
-        var name = "<?php echo ($user->username); ?>";
+		if($guid > 0){ ?>
+
+		var name = "<?php echo ($user->username); ?>";
         var profilePic = '';    
     	
     	// strip tags
@@ -25,7 +27,7 @@ if($guid > 0){
     	
     	$(document).ready(function() {
     		 getStateOfChat(); 			
-    		 <?php if ($vars['entity']->isMember($user)) { ?>
+    		 <?php if ($owner->isMember($user)) { ?>
     		
           $("#sendie").keydown(function(a){var b=a.which;if(b>=33){var c=$(this).attr("maxlength");var d=this.value.length;if(d>=c){a.preventDefault()}}});$("#chat-area li").hover(function(){$(".chatTime").hide();$(this).children(".chatTime").show()});$("#chat-area li").mouseover(function(){$(".chatTime").hide();$(this).children(".chatTime").show()});$("#chat-area li").click(function(){$(".chatTime").hide();$(this).children(".chatTime").show()});$("#sendie").keyup(function(a){if(a.keyCode==13){var b=$(this).val();var c=$(this).attr("maxlength");var d=b.length;if(d<=c+1){sendChat(b,name,profilePic);$(this).val("")}else{$(this).val(b.substring(0,c))}}})
              <?php } ?>
@@ -41,11 +43,19 @@ if($guid > 0){
     	
 		function chatCall(a){$(".chatTime").hide();$(a).children(".chatTime").show()}
     </script>
+<style>
+#elggchat_friends{
+    margin-right: 328px;
+}
 
+.chatbox {
+    margin-right: 328px;
+}
+</style>
 <div id="page-wrap">
   <div id="chat-wrap">
     <div class="clear" id="groupTitleChat">
-      <div class="floatLeft"><?php echo ucfirst($vars['entity']->name); ?> Chat</div>
+      <div class="floatLeft"><?php echo ucfirst($owner->get('name')); ?> Chat </div>
       <div class="floatRight">
         <div class="floatLeft padRht10 cursor miniMize">[-]</div>
         <div class="floatLeft padRht10 cursor maxMize">[+]</div>
@@ -59,7 +69,7 @@ if($guid > 0){
       </div>
       <div class="clear sendieDiv">
         <?php 
-		if ($vars['entity']->isMember($user)) {
+		if ($owner->isMember($user)) {
 		?>
         <div class="floatLeft">
           <form id="send-message-area">

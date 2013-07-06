@@ -1,5 +1,13 @@
 <?php 
 global $CONFIG;
+$owner=elgg_get_page_owner_entity();
+
+//$pippo="Non so dove sto";
+
+/*if ($owner instanceof ElggGroup) {
+	$pippo="Sto in un gruppo";
+}*/
+
 $guid =  elgg_get_logged_in_user_guid();
 if($guid > 0){
 	$user = elgg_get_logged_in_user_entity();
@@ -7,15 +15,14 @@ if($guid > 0){
 	if(!strstr($profilePic, 'defaulttiny.gif'))
 		$profilePic .= '.jpg';
 }
-
 ?>
 <script type="text/javascript">
 		
 		<?php
 		
 		if($guid > 0){ ?>
-		
-        var name = "<?php echo ($user->username); ?>";
+
+		var name = "<?php echo ($user->username); ?>";
         var profilePic = '';    
     	
     	// strip tags
@@ -55,7 +62,7 @@ if($guid > 0){
 <div id="page-wrap">
   <div id="chat-wrap">
     <div class="clear" id="groupTitleChat">
-      <div class="floatLeft"><?php echo ucfirst($vars['entity']->name); ?> Chat</div>
+      <div class="floatLeft"><?php echo ucfirst($vars['entity']->name); ?> Chat </div>
       <div class="floatRight">
         <div class="floatLeft padRht10 cursor miniMize">[-]</div>
         <div class="floatLeft padRht10 cursor maxMize">[+]</div>
