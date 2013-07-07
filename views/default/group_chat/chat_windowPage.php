@@ -43,6 +43,7 @@ if($guid > 0){
     	
 		function chatCall(a){$(".chatTime").hide();$(a).children(".chatTime").show()}
     </script>
+    
 <style>
 #elggchat_friends{
     margin-right: 328px;

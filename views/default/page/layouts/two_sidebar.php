@@ -76,8 +76,11 @@ $(document).ready(function(){
 	$owner=elgg_get_page_owner_entity();
 
 	if ($owner instanceof ElggGroup) {
+		$chatEnable = elgg_get_plugin_user_setting("GroupChat_enabled",$_SESSION['user']->guid,"group_chat") != "false";
+		if($chatEnable){
 		$content .= elgg_view('group_chat/chat_process_engine', $guid);
-		$content .= elgg_view('group_chat/chat_windowPage');		
+		$content .= elgg_view('group_chat/chat_windowPage');
+		}		
 	}
 ?>
 
