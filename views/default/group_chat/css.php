@@ -9,9 +9,9 @@
 #name-area span                 { color: #fa9f00; }
 
 #send-message-area p            { float: left; color: white; padding-top: 27px; font-size: 14px; }
-#sendie                         {  width: 304px; padding: 10px;
+#sendie                         {  width: 304px; padding: 7px;
 								 font: 11px "Lucida Grande", Sans-Serif; float:right; 
-								 height:40px;border-radius:0px; border-right:1px solid #FFFFFF; border-left:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF;border-top:1px solid #FFFFFF;}
+								 height:29px;border-radius:0px; border-right:1px solid #FFFFFF; border-left:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF;border-top:1px solid #FFFFFF;}
 #clear_both{clear:both;}
 #clear_both textarea{height:70px; width:710px}
 #chat-wrap ol{
