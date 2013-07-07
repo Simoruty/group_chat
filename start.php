@@ -43,8 +43,7 @@ if ($owner instanceof ElggGroup) {
 	// Extend the main css view 
 	elgg_extend_view('css/elgg', 'group_chat/css');
 	
-	//elgg_extend_view('groups/tool_latest', 'group_chat/group_module');
-	//elgg_extend_view('groups/tool_latest', 'group_chat/chat_window');
+	//elgg_extend_view('groups/tool_latest', 'group_chat/chat_windowPage');
 	//elgg_register_event_handler('group', $owner,'group_chat_handle_group_page');
 	
 	//elgg_extend_view('groups/tool_latest', '/group_chat/chat_process_engine');	
