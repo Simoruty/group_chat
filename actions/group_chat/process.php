@@ -45,13 +45,13 @@
 	// Check group chat directory. if not exist then create else use it
 	$dataroot = $CONFIG->dataroot;
 	if(!is_dir($dataroot.'group_chat')){
-		mkdir($dataroot.'group_chat', '0777');
-	    chmod($dataroot.'group_chat', '0777');
+		mkdir($dataroot.'group_chat', '0755');
+	    chmod($dataroot.'group_chat', '0755');
 	}
 	$groupEntityId =  get_input('groupEntityId');
 	if(!is_dir($dataroot.'group_chat'.'/'.$groupEntityId)){
-		mkdir($dataroot.'group_chat'.'/'.$groupEntityId, '0777');
-		chmod($dataroot.'group_chat'.'/'.$groupEntityId, '0777');
+		mkdir($dataroot.'group_chat'.'/'.$groupEntityId, '0755');
+		chmod($dataroot.'group_chat'.'/'.$groupEntityId, '0755');
 	}
 			
 	$chatLogDir = $dataroot.'group_chat'.'/'.$groupEntityId.'/';
